@@ -1,0 +1,24 @@
+apiVersion: ai.redhat.example.com/v1alpha1
+kind: LLMDeployment
+metadata:
+  name: llama-demo
+spec:
+  modelName: mistralai/Mistral-7B-Instruct-v0.2
+  image: ghcr.io/rh-aiservices-bu/vllm-cpu:latest
+  replicas: 1
+  port: 8000
+  routingPolicy: round_robin
+  maxConcurrency: 8
+  tensorParallelism: 1
+  route:
+    enabled: true
+  env:
+    HF_MODEL_ID: mistralai/Mistral-7B-Instruct-v0.2
+    VLLM_PORT: "8000"
+  resources:
+    requests:
+      cpu: "500m"
+      memory: "1Gi"
+    limits:
+      cpu: "1"
+      memory: "2Gi"

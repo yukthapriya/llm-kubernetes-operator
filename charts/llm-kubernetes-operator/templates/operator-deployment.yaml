@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: llm-kubernetes-operator
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: llm-kubernetes-operator
+  template:
+    metadata:
+      labels:
+        app: llm-kubernetes-operator
+    spec:
+      serviceAccountName: llm-operator-controller-sa
+      containers:
+        - name: operator
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}

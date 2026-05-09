@@ -1,0 +1,4 @@
+image:
+  repository: your-dockerhub-user/llm-kubernetes-operator
+  tag: latest
+  pullPolicy: IfNotPresent

@@ -1,0 +1,6 @@
+apiVersion: v2
+name: llm-kubernetes-operator
+description: A Kubernetes/OpenShift operator for managing LLM inference deployments
+type: application
+version: 0.1.0
+appVersion: "0.1.0"

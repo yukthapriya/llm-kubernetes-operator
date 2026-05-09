@@ -1,0 +1,22 @@
+apiVersion: ai.redhat.example.com/v1alpha1
+kind: LLMServiceSpec
+metadata:
+  name: llama-demo
+  namespace: myukthapriya-dev
+spec:
+  modelName: demo-mistral
+  image: quay.io/brancz/prometheus-example-app:v0.5.0
+  replicas: 2
+  port: 8080
+  routingPolicy: round_robin
+  maxConcurrency: 8
+  tensorParallelism: 1
+  env:
+    MODEL_FAMILY: mistral
+  resources:
+    requests:
+      cpu: "100m"
+      memory: "128Mi"
+    limits:
+      cpu: "250m"
+      memory: "256Mi"
