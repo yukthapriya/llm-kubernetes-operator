@@ -98,7 +98,11 @@ On OpenShift:
 ```bash
 oc get route
 ```
+## Demo Screenshot
 
+The screenshot below shows the end-to-end lifecycle of the OpenShift inference control-plane prototype, including resource apply/update, status inspection, successful OpenShift Route exposure, and cleanup.
+
+![OpenShift inference control-plane lifecycle](screenshots/demo-lifecycle.png)
 ## Helm install
 
 ```bash
